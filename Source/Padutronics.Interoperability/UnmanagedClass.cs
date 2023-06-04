@@ -1,13 +1,11 @@
-using System;
-
 namespace Padutronics.Interoperability;
 
 public abstract class UnmanagedClass : UnmanagedEntity, IUnmanagedClass
 {
-    protected UnmanagedClass(IntPtr pointer) :
+    protected UnmanagedClass(nint pointer) :
         base(pointer)
     {
     }
 
-    public IntPtr This => Pointer;
+    public nint This => Pointer;
 }

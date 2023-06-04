@@ -8,9 +8,9 @@ namespace Padutronics.Interoperability;
 [DebuggerDisplay(DebuggerDisplayValues.DebuggerDisplay)]
 public abstract class UnmanagedEntity : DisposableObject, IUnmanagedEntity
 {
-    protected UnmanagedEntity(IntPtr pointer)
+    protected UnmanagedEntity(nint pointer)
     {
-        if (pointer == IntPtr.Zero)
+        if (pointer == nint.Zero)
         {
             throw new ArgumentException("Unmanaged entity pointer cannot be equal to 0.", nameof(pointer));
         }
@@ -21,7 +21,7 @@ public abstract class UnmanagedEntity : DisposableObject, IUnmanagedEntity
     [DebuggerBrowsable(DebuggerBrowsableState.Never)]
     private string DebuggerDisplay => $"0x{Pointer.ToInt64():X8}";
 
-    public IntPtr Pointer { get; }
+    public nint Pointer { get; }
 
     public override bool Equals(object? obj)
     {
